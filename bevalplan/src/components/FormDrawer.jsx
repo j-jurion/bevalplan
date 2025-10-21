@@ -1,5 +1,3 @@
-import MostImportant from "./MostImportant";
-import SelectionList from "./SelectionList";
 import CardWrapper from "./CardWrapper";
 import ParentsCard from "./Cards/ParentsCard.jsx";
 import EssentialsCard from "./Cards/EssentialsCard.jsx";
