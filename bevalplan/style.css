@@ -1,0 +1,226 @@
+:root {
+            --bp-dark-teal: #538787; 
+            --bp-lighter-teal: #7EB2B2;
+            --bp-light-teal: #DBEBEB; 
+            --bp-blue: #7CADC7;
+        }
+
+/* Globale opmaak voor de gehele applicatie */
+.app-container {
+    /* Verwijder de vaste 'height: 100vh' hier en gebruik 'min-height' om scrollen op mobiel toe te staan */
+    min-height: 100vh;
+}
+
+/* ---------------------------------------------------- */
+/* LINKER KOLOM (FORMULIER) */
+/* ---------------------------------------------------- */
+.form-column {
+    /* Maakt de linkerkolom scrollbaar */
+    overflow-y: auto; 
+    
+    /* Stel een achtergrondkleur in voor duidelijk onderscheid */
+    background-color: var(--bp-light-teal); 
+    color: var(--bp-dark-teal);
+}
+
+/* Container voor de nieuwe iconen (zorgt voor nette rijen/kolommen) */
+.icon-toggle-container {
+    /* Gebruik dit om meerdere iconen naast elkaar te plaatsen, bijv. in een flexbox */
+    display: inline-block;
+    margin-right: 10px; /* Ruimte tussen de knoppen */
+}
+
+/* 1. Verberg de standaard checkbox */
+.icon-toggle-input {
+    position: absolute; /* Haal het element uit de flow */
+    opacity: 0;         /* Maak het onzichtbaar */
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* 2. Style het label om op een knop te lijken */
+.icon-toggle-label {
+    width: 110px;
+    height: 110px;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 12px; /* Afgeronde rechthoek */
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+    color: #495057; /* Standaardtekstkleur */
+}
+
+/* icoontje */
+.icoontje {
+    height: 45px;
+}
+
+.text-icoontje {
+    font-size: 0.8rem;
+    min-height: 35px;
+}
+
+/* Hover effect */
+.icon-toggle-label:hover {
+    border-color: var(--bp-lighter-teal);
+    box-shadow: 0 0 5px rgba(0, 162, 176, 0.5);
+}
+
+/* 3. Style de ACTIEVE (aangevinkte) staat */
+/* de CSS-regel wordt toegepast ALS de verborgen input is aangevinkt */
+.icon-toggle-input:checked + .icon-toggle-label {
+    background-color: #F0F8F8; /* Lichte achtergrond */
+    border-color: var(--bp-lighter-teal); /* Accentkleur */
+    color: var(--bp-dark-teal); /* Tekst en icoonkleur */
+    box-shadow: 0 0 0 3px rgba(0, 144, 144, 0.3); /* Duidelijke actieve rand */
+}
+
+
+/* ---------------------------------------------------- */
+/* RECHTER KOLOM (PREVIEW) - Standaard (Mobiele) Stijlen */
+/* ---------------------------------------------------- */
+
+/* Op mobiel staan de elementen gewoon onder elkaar. */
+.preview-column {
+    /* Haal de desktop-centrering weg op mobiel */
+    display: block; 
+    align-items: unset;
+    justify-content: unset;
+    height: auto; /* Zorg ervoor dat de hoogte zich aanpast aan de inhoud */
+    padding-bottom: 70px; /* Geef de knop op mobiel ruimte */
+}
+
+/* De container die geschaald wordt */
+.a4-wrapper {
+    /* Gebruik z-index om te zorgen dat de PDF knop eroverheen ligt */
+    position: relative;
+    z-index: 10;
+    
+    /* Optioneel: voeg een transitie toe voor een vloeiend schaaleffect */
+    transition: transform 0.2s ease-out;
+}
+
+/* De A4 PAPIER look met vaste afmetingen */
+.a4-document {
+    /* Landscape afmetingen (297mm breed, 210mm hoog) */
+    width: 297mm; 
+    min-height: 210mm; 
+    
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sterkere schaduw voor 3D effect */
+    border: 1px solid #ddd;
+    
+    /* Voorkom dat scaling de tekst wazig maakt (werkt niet overal, maar helpt) */
+    transform-origin: top left;
+}
+
+
+/* ---------------------------------------------------- */
+/* HORIZONTALE RANGSCHIKKING CATEGORIEËN */
+/* ---------------------------------------------------- */
+.category-row {
+    display: flex; /* Activeer Flexbox */
+    gap: 20px;     /* Ruimte tussen de categorieën */
+    flex-wrap: nowrap; /* Voorkom dat items naar een nieuwe rij springen */
+}
+
+.category-item {
+    /* Geef elke categorie gelijke ruimte */
+    flex-grow: 1; 
+    
+    /* Zorg dat de categorie niet groter wordt dan nodig is (vooral belangrijk als ze leeg zijn) */
+    flex-shrink: 0; 
+    
+    /* Verdeel de A4 breedte. Hier 33.33% voor drie kolommen minus de gap. */
+    width: 33.33%; 
+}
+
+/* Zorg dat de titel en de opties netjes binnen de category-item blijven */
+.category-item h4 {
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    font-size: 1rem; /* Pas de titelgrootte aan voor de kleinere ruimte */
+    white-space: nowrap; /* Voorkom afbreken van de titel */
+}
+
+/* Pas de indeling van de opties aan in de smallere kolommen */
+.category-item .live-options {
+    /* Zorg dat de opties netjes in een rij blijven en omvouwen indien nodig */
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 8px; /* Ruimte tussen de icoonknoppen */
+}
+
+/* Pas de grootte van de icoon-items aan voor de smallere breedte */
+.option-item {
+    max-width: 70px; /* Maak de icoon-items smaller */
+    padding: 3px;
+    font-size: 0.7rem;
+}
+
+.option-item img {
+    max-width: 40px; /* Maak de iconen zelf kleiner */
+}
+
+
+/* Stijl download knop */
+.btn-bp {
+    background-color: var(--bp-blue);
+    color: #fff;
+}
+
+.btn-bp:hover {
+    background-color: #5A8BA5;
+    color: #fff;
+}
+
+
+/* ---------------------------------------------------- */
+/* DOWNLOAD KNOP POSITIE - Standaard (Mobiele) Stijlen */
+/* ---------------------------------------------------- */
+/* Op mobiel staat de knop onderaan de content en rechts uitgelijnd */
+.download-button-wrapper {
+    position: static; /* Haal de 'fixed' desktop positie weg */
+    text-align: right;
+    padding: 10px 20px 20px 0; /* Padding voor de mobiele weergave */
+}
+
+/* Verberg opties die niet zijn aangevinkt (voor de JS implementatie) */
+.option-item.hidden {
+    display: none !important;
+}
+
+/* ---------------------------------------------------- */
+/* DESKTOP/LARGE SCREEN (lg) OVERRIDES (vanaf 992px) */
+/* ---------------------------------------------------- */
+@media (min-width: 992px) {
+    
+    /* LINKER KOLOM: Zorgt ervoor dat de formulierkolom scrollt binnen 100vh */
+    .form-column {
+        height: 100vh;
+        overflow-y: auto; 
+    }
+    
+    /* RECHTER KOLOM: Herstel de vaste hoogte en centrering op desktop */
+    .preview-column {
+        height: 100vh; /* Vaste hoogte op desktop */
+        overflow: hidden; /* Zorgt ervoor dat alleen de A4 geschaald wordt, niet de hele kolom scrollt */
+        
+        /* Herstel de flexbox centrering */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* DOWNLOAD KNOP POSITIE - DESKTOP OVERRIDE */
+    .download-button-wrapper {
+        position: absolute; /* Herstel de absolute positie op desktop */
+        bottom: 20px; 
+        right: 20px; 
+        padding: 0;
+    }
+}
