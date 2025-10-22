@@ -101,21 +101,12 @@ function DraggableItem({ id, item }) {
     : item.position;
 
   return (
-    // <PreviewTile 
-    //   option={{ id, label: item.label, image: item.image, alt: item.alt }} 
-    //   ref={setNodeRef}
-    //   {...listeners}
-    //   {...attributes}
-    //   style={{
-    //     position: "absolute",
-    //     cursor: "grab"
-    //   }}
-    // />
-    <div
+    <PreviewTile 
+      option={{ id, label: item.label, image: item.image, alt: item.alt }} 
       ref={setNodeRef}
       {...listeners}
       {...attributes}
-      style={{
+      style={{ 
         width: 100,
         height: 100,
         borderRadius: 8,
@@ -124,9 +115,6 @@ function DraggableItem({ id, item }) {
         top: translate.y,
         cursor: "grab",
       }}
-    >
-      <img src={item.image} alt={item.alt} />
-      <span>{item.label}</span>
-    </div>
+    />
   );
 }
