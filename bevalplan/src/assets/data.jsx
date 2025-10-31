@@ -20,7 +20,7 @@ const data = [
                 image: "images/gedimd-licht.png", 
                 alt: "gedimd-licht",
                 position: {x: 0, y: 0},
-                hidden: true,
+                hidden: false,
             },
             { 
                 id: "prefEigenMuziek", 

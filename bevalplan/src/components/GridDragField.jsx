@@ -31,28 +31,37 @@ function snapToGridAndClamp(x, y, grid = GRID_SIZE) {
 }
 
 export default function GridDragField() {
-  const {data, setData, items, setItems} = useContext(MyContext);
+  const {data, setData} = useContext(MyContext);
 
   const handleDragEnd = (event) => {
     const { active, delta } = event;
-    setItems((prevItems) =>
-      prevItems.map((item) => {
-        if (item.id === active.id) {
-          const newX = item.position.x + delta.x;
-          const newY = item.position.y + delta.y;
-          return { ...item, position: snapToGridAndClamp(newX, newY) };
-        }
-        return item;
-      })
+    console.log("Drag ended for:", active.id, "with delta:", delta);
+    setData(prevData =>
+      prevData.map(data => ({
+        ...data,
+        options: data.options.map(option => {
+          if (option.id === active.id) {
+            const newX = option.position.x + delta.x;
+            const newY = option.position.y + delta.y;
+            return {
+              ...option,
+              position: snapToGridAndClamp(newX, newY)
+            };
+          }
+          return option;
+        })
+      }))
     );
   };
 
   return (
     <DndContext onDragEnd={handleDragEnd}>
       <DroppableField>
-        {items.map((item) => (
-          <DraggableItem key={item.id} id={item.id} item={item} />
-        ))}
+        {data.map((dataItem) =>
+          dataItem.options.map((option) => (
+            <DraggableItem key={option.id} id={option.id} item={option} />
+          ))
+        )}
       </DroppableField>
     </DndContext>
   );

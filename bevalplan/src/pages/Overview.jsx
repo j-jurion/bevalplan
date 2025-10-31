@@ -16,7 +16,7 @@ export default function Overview () {
 
     return (
         <div className="container-fluid d-block d-lg-flex p-0 app-container">
-            <MyContext.Provider value={{ data, setData, items, setItems }}>
+            <MyContext.Provider value={{ data, setData }}>
                 <FormDrawer />
                 <Preview />
             </MyContext.Provider>
