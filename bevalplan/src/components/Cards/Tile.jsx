@@ -15,14 +15,13 @@ export default function Tile({ option, setData }) {
     return (
         <div className="icon-toggle-container mb-3" onClick={handleClick}>
             {option.hidden ? 
-            <div htmlFor={option.id} className="icon-toggle-label d-flex flex-column align-items-center justify-content-center p-2">
+            <div className="icon-toggle-label d-flex flex-column align-items-center justify-content-center p-2">
                 <img src={option.image} className="icoontje" alt={option.alt} /> 
                 <span className="text-icoontje mt-1">{option.label}</span>
             </div>
             : (
                 <div
-                    htmlFor={option.id}
-                    className="icon-toggle-label icon-toggle-label-show  d-flex flex-column align-items-center justify-content-center p-2 visible-label"
+                    className="icon-toggle-label icon-toggle-label-show d-flex flex-column align-items-center justify-content-center p-2 visible-label"
                 >
                     <img src={option.image} className="icoontje" alt={option.alt} />
                     <span className="text-icoontje mt-1">{option.label}</span>
