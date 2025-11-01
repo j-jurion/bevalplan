@@ -4,8 +4,8 @@ import {
   useDraggable,
   useDroppable
 } from "@dnd-kit/core";
-import PreviewTile from "./Cards/PreviewTile.jsx";
-import { MyContext } from "../context/MyContext.jsx";
+import PreviewTile from "../Cards/PreviewTile.jsx";
+import { MyContext } from "../../context/MyContext.jsx";
 import PreviewTitle from "./PreviewTitle.jsx";
 
 
@@ -35,7 +35,6 @@ export default function GridDragField() {
 
   const handleDragEnd = (event) => {
     const { active, delta } = event;
-    console.log("Drag ended for:", active.id, "with delta:", delta);
     setData(prevData =>
       prevData.map(data => ({
         ...data,

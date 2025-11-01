@@ -1,4 +1,4 @@
-import CardWrapper from "./CardWrapper";
+import CardWrapper from "./Cards/CardWrapper.jsx";
 import ParentsCard from "./Cards/ParentsCard.jsx";
 import EssentialsCard from "./Cards/EssentialsCard.jsx";
 import TilesCard from "./Cards/TilesCard.jsx";

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 
 import FormDrawer from '../components/FormDrawer.jsx';
-import PlanView from '../components/GridDragField.jsx';
-import Preview from '../components/Preview.jsx';
+import Preview from '../components/Preview/Preview.jsx';
 
 import { MyContext } from "../context/MyContext.jsx";
 import data2 from "../assets/data.jsx";
