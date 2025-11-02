@@ -10,8 +10,8 @@ import PreviewTitle from "./PreviewTitle.jsx";
 
 
 const GRID_SIZE = 25;
-const GRID_WIDTH = 900;
-const GRID_HEIGHT = 600;
+const GRID_WIDTH = 950;
+const GRID_HEIGHT = 675;
 const TILE_WIDTH = 200;
 const TILE_HEIGHT = 200;
 
@@ -81,8 +81,8 @@ function DroppableField({ children }) {
     <div
       style={{
         position: "relative",
-        width: 900,
-        height: 600,
+        width: 950,
+        height: 675,
         backgroundImage: gridBackground,
         backgroundSize: `${GRID_SIZE}px ${GRID_SIZE}px`,
         border: "1px solid #aaa",
