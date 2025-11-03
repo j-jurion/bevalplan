@@ -15,7 +15,7 @@ export default function ParentsCard() {
             <div className="form-check">
                 <input className="form-check-input" type="checkbox" value="" id="koppelKind" />
                 <label className="form-check-label" htmlFor="koppelKind">
-                    Toon kind
+                    Toon koppel met kind
                 </label>
             </div>
             <div className="form-check">
