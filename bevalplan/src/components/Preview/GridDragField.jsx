@@ -31,7 +31,7 @@ function snapToGridAndClamp(x, y, grid = GRID_SIZE) {
 }
 
 export default function GridDragField() {
-  const {data, setData} = useContext(MyContext);
+  const {data, setData, name, setName, mostImportant, setMostImportant} = useContext(MyContext);
 
   const handleDragEnd = (event) => {
     const { active, delta } = event;
